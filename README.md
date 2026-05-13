@@ -2,7 +2,7 @@
 
 VS Code / Cursor extension for Nuxt + Vue. Right‑click → **Refus** and it tries to show who’s using this file (imports, template tags, `use*` from composables, that sort of thing). Not the language server; details below in two languages.
 
-![Refus — screen recording](./docs/refus-screen.gif)
+![Refus — screen recording](https://raw.githubusercontent.com/Fernir/refus/main/docs/refus-screen.gif)
 
 Licensed under the MIT License — see `LICENSE`. Publishing to the VS Marketplace: **PUBLISHING.md**.
 
