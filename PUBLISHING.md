@@ -6,7 +6,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 ## One-time setup
 
-0. **GitHub** — README images on the Marketplace are resolved via `repository` in `package.json`. This repo assumes **`https://github.com/Nikolay/refus`**. Create that public repo (or change `repository`, `homepage`, and `bugs.url` to match your account) and push this project, including `docs/`.
+0. **GitHub** — README images on the Marketplace are resolved via `repository` in `package.json`. Source of truth: **`https://github.com/Fernir/refus`**. Keep `docs/` in the repo so the README GIF resolves on the listing.
 
 1. **Personal Access Token (PAT)**  
    Azure DevOps → Personal access tokens → New token → scope **Marketplace → Manage** (see Microsoft’s guide above).
@@ -51,7 +51,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 ## Кратко
 
-1. Публичный GitHub **`Nikolay/refus`** (или поправь URL в `package.json`) + push с `docs/`.  
+1. Публичный GitHub **`Fernir/refus`** — URL в `package.json` уже на него; в репозитории должна быть папка **`docs/`**.  
 2. PAT Azure DevOps — право **Marketplace (Manage)**.  
 3. `npx @vscode/vsce login Nikolay`.  
 4. Поднять `version`, затем `npm run package` или `npm run publish`.  
