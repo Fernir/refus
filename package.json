@@ -1,74 +1,74 @@
 {
-  "name": "refus",
-  "displayName": "Refus",
-  "description": "Find consumers of your Vue / Nuxt modules (.vue and Nuxt-area .ts): imports, template tags, composable names. Not for React.",
-  "version": "0.1.3",
-  "publisher": "Nikolay",
-  "author": "Nikolay Alekseev <domainexecute@gmail.com>",
-  "license": "MIT",
-  "icon": "icon.png",
-  "bugs": {
-    "url": "https://github.com/Fernir/refus/issues",
-    "email": "domainexecute@gmail.com"
-  },
-  "homepage": "https://github.com/Fernir/refus#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Fernir/refus.git"
-  },
-  "engines": {
-    "vscode": "^1.85.0"
-  },
-  "galleryBanner": {
-    "color": "#252526",
-    "theme": "dark"
-  },
-  "categories": [
-    "Other"
-  ],
-  "keywords": [
-    "nuxt",
-    "vue",
-    "composables",
-    "references",
-    "imports"
-  ],
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "refus.findFileUsers",
-        "title": "Refus"
+   "name": "refus",
+   "displayName": "Refus",
+   "description": "Find consumers of your Vue / Nuxt modules (.vue and Nuxt-area .ts): imports, template tags, composable names. Not for React.",
+   "version": "0.1.3",
+   "publisher": "Nikolay",
+   "author": "Nikolay Alekseev <domainexecute@gmail.com>",
+   "license": "MIT",
+   "icon": "icon.png",
+   "bugs": {
+      "url": "https://github.com/Fernir/refus/issues",
+      "email": "domainexecute@gmail.com"
+   },
+   "homepage": "https://github.com/Fernir/refus#readme",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/Fernir/refus.git"
+   },
+   "engines": {
+      "vscode": "^1.85.0"
+   },
+   "galleryBanner": {
+      "color": "#252526",
+      "theme": "dark"
+   },
+   "categories": [
+      "Other"
+   ],
+   "keywords": [
+      "nuxt",
+      "vue",
+      "composables",
+      "references",
+      "imports"
+   ],
+   "activationEvents": [
+      "onStartupFinished"
+   ],
+   "main": "./out/extension.js",
+   "contributes": {
+      "commands": [
+         {
+            "command": "refus.findFileUsers",
+            "title": "Refus"
+         }
+      ],
+      "menus": {
+         "editor/context": [
+            {
+               "command": "refus.findFileUsers",
+               "group": "navigation@12",
+               "when": "editorTextFocus"
+            }
+         ]
       }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "command": "refus.findFileUsers",
-          "group": "navigation@12",
-          "when": "editorTextFocus"
-        }
-      ]
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile && node scripts/ensure-all-ripgrep-platforms.cjs",
-    "postinstall": "node scripts/ensure-all-ripgrep-platforms.cjs",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "package": "vsce package",
-    "publish": "vsce publish"
-  },
-  "devDependencies": {
-    "@types/node": "^20.10.0",
-    "@types/vscode": "^1.85.0",
-    "@vscode/vsce": "^3.2.0",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@vscode/ripgrep": "^1.18.0"
-  }
+   },
+   "scripts": {
+      "vscode:prepublish": "npm run compile && node scripts/ensure-all-ripgrep-platforms.cjs",
+      "postinstall": "node scripts/ensure-all-ripgrep-platforms.cjs",
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./",
+      "package": "vsce package",
+      "publish": "vsce publish"
+   },
+   "devDependencies": {
+      "@types/node": "^20.10.0",
+      "@types/vscode": "^1.85.0",
+      "@vscode/vsce": "^3.2.0",
+      "typescript": "^5.3.3"
+   },
+   "dependencies": {
+      "@vscode/ripgrep": "^1.18.0"
+   }
 }
