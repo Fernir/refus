@@ -63,7 +63,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 1. Публичный GitHub **`Fernir/refus`** — URL в `package.json` уже на него; в репозитории должна быть папка **`docs/`**.  
 2. PAT Azure DevOps — право **Marketplace (Manage)**.  
-3. Поднять `version` в `package.json` при каждом релизе (сейчас **0.1.2**).  
+3. Поднять `version` в `package.json` при каждом релизе (сейчас **0.1.3**).  
 4. `npx @vscode/vsce login Nikolay` или `export VSCE_PAT=…` и `npm run publish`. Если **`TF400813`** — токен протух или без **Marketplace → Manage**, выпусти новый PAT.  
 5. Панель издателя: [Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).  
 6. Перед пакетом/паблишем `vscode:prepublish` подтягивает **все** бинарники `@vscode/ripgrep-*` (не только текущую ОС), иначе у пользователей на других платформах расширение упадёт при поиске.
