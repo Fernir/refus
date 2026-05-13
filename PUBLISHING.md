@@ -11,14 +11,23 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 1. **Personal Access Token (PAT)**  
    Azure DevOps → Personal access tokens → New token → scope **Marketplace → Manage** (see Microsoft’s guide above).
 
-2. **Login**
+2. **Login** (pick one)
 
    ```bash
    npm install
    npx @vscode/vsce login Nikolay
    ```
 
+   Or non-interactive / CI: create a PAT with scope **Marketplace (Manage)**, then:
+
+   ```bash
+   export VSCE_PAT="your_token_here"
+   npm run publish
+   ```
+
    The publisher id must match `"publisher": "Nikolay"` in `package.json`.
+
+   If you see **`TF400813`** or **Personal Access Token verification has failed**, the saved token is missing, expired, or lacks **Marketplace → Manage** — create a new PAT and run `vsce login` again or set a fresh `VSCE_PAT`.
 
 ## Each release
 
@@ -54,7 +63,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 1. Публичный GitHub **`Fernir/refus`** — URL в `package.json` уже на него; в репозитории должна быть папка **`docs/`**.  
 2. PAT Azure DevOps — право **Marketplace (Manage)**.  
-3. `npx @vscode/vsce login Nikolay`.  
-4. Поднять `version`, затем `npm run package` или `npm run publish`.  
+3. Поднять `version` в `package.json` при каждом релизе (сейчас **0.1.1**).  
+4. `npx @vscode/vsce login Nikolay` или `export VSCE_PAT=…` и `npm run publish`. Если **`TF400813`** — токен протух или без **Marketplace → Manage**, выпусти новый PAT.  
 5. Панель издателя: [Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).  
 6. Перед пакетом/паблишем `vscode:prepublish` подтягивает **все** бинарники `@vscode/ripgrep-*` (не только текущую ОС), иначе у пользователей на других платформах расширение упадёт при поиске.
