@@ -45,6 +45,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 - Marketplace extension id: **`Nikolay.refus`**. If the name `refus` is taken globally, change `"name"` in `package.json` (lowercase, no spaces).
 - `README.md`, `LICENSE`, `PUBLISHING.md`, and `docs/` are packaged; `src/` is not (only `out/`).
+- **Ripgrep**: `postinstall` and `vscode:prepublish` run `scripts/ensure-all-ripgrep-platforms.cjs`, which installs every `@vscode/ripgrep-*` platform binary (`npm install --force`) so the published VSIX works on Windows, Linux, and macOS (not only the machine you packed on). The `.vsix` is larger (~25 MB) because it ships every `rg` build.
 - Optional: add **`icon.png`** (128×128) at the repo root and `"icon": "icon.png"` in `package.json`.
 
 ---
@@ -55,4 +56,5 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 2. PAT Azure DevOps — право **Marketplace (Manage)**.  
 3. `npx @vscode/vsce login Nikolay`.  
 4. Поднять `version`, затем `npm run package` или `npm run publish`.  
-5. Панель издателя: [Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).
+5. Панель издателя: [Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).  
+6. Перед пакетом/паблишем `vscode:prepublish` подтягивает **все** бинарники `@vscode/ripgrep-*` (не только текущую ОС), иначе у пользователей на других платформах расширение упадёт при поиске.

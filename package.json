@@ -54,7 +54,8 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "npm run compile && node scripts/ensure-all-ripgrep-platforms.cjs",
+    "postinstall": "node scripts/ensure-all-ripgrep-platforms.cjs",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "package": "vsce package",
