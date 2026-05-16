@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="26" ry="26" fill="#252526"/>
+  <text
+    x="42"
+    y="82"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-weight="800"
+    font-size="64"
+    fill="#FFFFFF">R</text>
+  <!-- Стрелка вверх рядом с буквой -->
+  <path fill="#42b883" d="M 88 36 L 108 74 H 96 V 88 H 80 V 74 H 68 Z"/>
+</svg>
