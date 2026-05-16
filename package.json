@@ -1,9 +1,9 @@
 {
    "name": "refus",
-   "displayName": "Refus",
+   "displayName": "refus",
    "description": "Find consumers of your Vue / Nuxt modules (.vue and Nuxt-area .ts): imports, template tags, composable names. Not for React.",
-   "version": "0.1.5",
-   "publisher": "Fernir",
+   "version": "0.1.6",
+   "publisher": "Nikolay",
    "author": "Nikolay Alekseev <domainexecute@gmail.com>",
    "license": "MIT",
    "icon": "icon.png",
@@ -41,7 +41,7 @@
       "commands": [
          {
             "command": "refus.findFileUsers",
-            "title": "Refus"
+            "title": "refus"
          }
       ],
       "menus": {
@@ -55,9 +55,7 @@
       }
    },
    "scripts": {
-      "vscode:prepublish": "npm run compile && node scripts/ensure-all-ripgrep-platforms.cjs",
-      "postinstall": "node scripts/ensure-all-ripgrep-platforms.cjs",
-      "build:icon": "node scripts/raster-icon.cjs",
+      "vscode:prepublish": "npm run compile",
       "compile": "tsc -p ./",
       "watch": "tsc -watch -p ./",
       "package": "vsce package",
@@ -67,10 +65,6 @@
       "@types/node": "^20.10.0",
       "@types/vscode": "^1.85.0",
       "@vscode/vsce": "^3.2.0",
-      "sharp": "^0.34.5",
       "typescript": "^5.3.3"
-   },
-   "dependencies": {
-      "@vscode/ripgrep": "^1.18.0"
    }
 }

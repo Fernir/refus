@@ -1,4 +1,4 @@
-# Publishing Refus to the VS Marketplace
+# Publishing refus to the VS Marketplace
 
 Publisher: [marketplace.visualstudio.com/manage/publishers/Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).
 
@@ -54,8 +54,7 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 
 - Marketplace extension id: **`Nikolay.refus`**. If the name `refus` is taken globally, change `"name"` in `package.json` (lowercase, no spaces).
 - `README.md`, `LICENSE`, `PUBLISHING.md`, and `docs/` are packaged; `src/` is not (only `out/`).
-- **Ripgrep**: `postinstall` and `vscode:prepublish` run `scripts/ensure-all-ripgrep-platforms.cjs`, which installs every `@vscode/ripgrep-*` platform binary (`npm install --force`) so the published VSIX works on Windows, Linux, and macOS (not only the machine you packed on). The `.vsix` is larger (~25 MB) because it ships every `rg` build.
-- Optional: **`icon.png`** (128×128) in the repo root — already wired via `"icon": "icon.png"` in `package.json`; replace the file to change branding.
+- **`icon.png`** (128×128) in the repo root — wired via `"icon": "icon.png"` in `package.json`.
 
 ---
 
@@ -66,4 +65,4 @@ Docs: [Publishing Extensions](https://code.visualstudio.com/api/working-with-ext
 3. Поднять `version` в `package.json` при каждом релизе (сейчас **0.1.3**).  
 4. `npx @vscode/vsce login Nikolay` или `export VSCE_PAT=…` и `npm run publish`. Если **`TF400813`** — токен протух или без **Marketplace → Manage**, выпусти новый PAT.  
 5. Панель издателя: [Nikolay](https://marketplace.visualstudio.com/manage/publishers/Nikolay).  
-6. Перед пакетом/паблишем `vscode:prepublish` подтягивает **все** бинарники `@vscode/ripgrep-*` (не только текущую ОС), иначе у пользователей на других платформах расширение упадёт при поиске.
+6. `vscode:prepublish` только компилирует TypeScript (`out/`).
